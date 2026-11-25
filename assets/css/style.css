@@ -146,6 +146,8 @@ section { padding: 64px 0; }
 .filter-btn.active, .filter-btn:hover { background: var(--green); color: #fff; border-color: var(--green); }
 .project-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .project-thumb { height: 150px; background: linear-gradient(135deg, var(--green), #3a7d4f 55%, var(--yellow)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 22px; padding: 16px; text-align: center; }
+.project-thumb.has-img { padding: 0; }
+.project-thumb img { width: 100%; height: 150px; object-fit: cover; display: block; }
 .project-body { padding: 18px; }
 .project-body small { color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
 
