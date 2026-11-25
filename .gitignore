@@ -1,0 +1,11 @@
+# Ignore secrets and local / build artefacts. Never commit a real .env file.
+.env
+.env.local
+.env.*.local
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+dist/
+.idea/
+.vscode/

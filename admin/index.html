@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — Portfolio</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.admin{max-width:860px;margin:0 auto;padding:28px 20px}
+.admin label{display:block;font-weight:700;margin:14px 0 4px}
+.admin input,.admin textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:10px;font:inherit}
+.admin textarea{min-height:90px}
+.notice{background:#fff8db;border:1px solid #f5b301;border-radius:12px;padding:14px}
+</style>
+</head>
+<body>
+<main class="admin">
+  <p><a href="../">← Back to site</a></p>
+  <h1>Admin Panel <span style="color:#888;font-size:16px">(local only)</span></h1>
+  <p class="notice"><strong>Important:</strong> Changes here are saved only in <em>this browser</em> (localStorage) for preview. They do <strong>not</strong> change the live site. To publish, click “Download updated config.js”, replace <code>assets/js/config.js</code> in the project, commit and push to GitHub. No password is used because this panel has no server — do not put secrets here.</p>
+  <form id="admin-form">
+    <label>Name <input name="name" type="text"></label>
+    <label>Role <input name="role" type="text"></label>
+    <label>Location <input name="location" type="text"></label>
+    <label>Bio <textarea name="bio"></textarea></label>
+    <label>Email <input name="email" type="email"></label>
+    <label>GitHub URL <input name="github" type="url"></label>
+    <label>Facebook URL (leave empty to hide) <input name="facebook" type="url"></label>
+    <label>Formspree Form ID (optional, example only — get a real ID from formspree.io) <input name="formspreeFormId" type="text" placeholder="e.g. abcdwxyz"></label>
+    <label>Services (one per line: Title | Description) <textarea name="servicesText" rows="5"></textarea></label>
+    <label>Projects (one per line: Title | Category | Year | Description) <textarea name="projectsText" rows="6"></textarea></label>
+    <button class="btn" type="submit">Save preview (this browser only)</button>
+    <button class="btn btn-outline" id="download-btn" type="button">Download updated config.js</button>
+    <button class="btn btn-outline" id="reset-btn" type="button">Reset to defaults</button>
+  </form>
+  <p id="saved-note" hidden>Saved for preview in this browser.</p>
+</main>
+<script src="../assets/js/config.js"></script>
+<script>
+(function(){
+  var KEY="portfolio-admin-config-v1";
+  var form=document.getElementById("admin-form");
+  function getCfg(){ try{ var s=localStorage.getItem(KEY); if(s) return JSON.parse(s); }catch(e){} return window.SITE_CONFIG||{}; }
+  function fill(cfg){
+    form.name.value=cfg.name||""; form.role.value=cfg.role||""; form.location.value=cfg.location||"";
+    form.bio.value=cfg.bio||""; form.email.value=cfg.email||""; form.github.value=cfg.github||"";
+    form.facebook.value=cfg.facebook||""; form.formspreeFormId.value=cfg.formspreeFormId||"";
+    form.servicesText.value=(cfg.services||[]).map(function(s){return s.title+" | "+s.description;}).join("\n");
+    form.projectsText.value=(cfg.projects||[]).map(function(p){return p.title+" | "+p.category+" | "+(p.year||"")+" | "+p.description;}).join("\n");
+  }
+  fill(getCfg());
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var cfg=getCfg();
+    cfg.name=form.name.value.trim(); cfg.role=form.role.value.trim(); cfg.location=form.location.value.trim();
+    cfg.bio=form.bio.value.trim(); cfg.email=form.email.value.trim(); cfg.github=form.github.value.trim();
+    cfg.facebook=form.facebook.value.trim(); cfg.formspreeFormId=form.formspreeFormId.value.trim();
+    cfg.services=form.servicesText.value.split("\n").filter(Boolean).map(function(line){var p=line.split("|");return {title:(p[0]||"").trim(),description:(p[1]||"").trim(),icon:"✦"};});
+    cfg.projects=form.projectsText.value.split("\n").filter(Boolean).map(function(line){var p=line.split("|");return {title:(p[0]||"").trim(),category:(p[1]||"").trim(),year:(p[2]||"").trim(),description:(p[3]||"").trim()};});
+    localStorage.setItem(KEY,JSON.stringify(cfg));
+    document.getElementById("saved-note").hidden=false;
+  });
+  document.getElementById("download-btn").addEventListener("click",function(){
+    var cfg=getCfg();
+    var out="const SITE_CONFIG = "+JSON.stringify(cfg,null,2)+";\nif (typeof window !== 'undefined') window.SITE_CONFIG = SITE_CONFIG;\n";
+    var blob=new Blob([out],{type:"text/javascript"});
+    var a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="config.js"; a.click(); URL.revokeObjectURL(a.href);
+  });
+  document.getElementById("reset-btn").addEventListener("click",function(){ localStorage.removeItem(KEY); fill(window.SITE_CONFIG||{}); });
+})();
+</script>
+</body>
+</html>

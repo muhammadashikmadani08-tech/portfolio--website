@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Ashik Madani — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Muhammad Ashik Madani — services, projects and contact.">
+  <!-- No API keys or secrets are used on this page. All editable text lives in assets/js/config.js -->
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="logo" href="#home"><span data-site-name>Muhammad Ashik Madani</span><span class="dot">.</span></a>
+    <button id="menu-btn" class="menu-btn" type="button" aria-label="Open menu">Menu ☰</button>
+    <div id="nav-links" class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn btn-light" href="#contact">Contact Me</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hello-tag" data-site-tagline>Hello There!</span>
+        <h1>I'm <span class="name" data-site-name>Muhammad Ashik Madani</span>,<br>
+          <span data-site-role>Product Designer</span><br>
+          Based in <span data-site-location>Bangladesh</span>.</h1>
+        <p class="lead" data-site-bio>I'm an experienced Product Designer, collaborating with various companies and startups.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#projects">View My Portfolio</a>
+          <a class="btn btn-outline" href="#contact">Hire Me</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="blob">
+          <img src="assets/images/profile-photo.png" alt="Portrait photo of Muhammad Ashik Madani" width="860" height="1012" fetchpriority="high">
+        </div>
+        <div class="badge-rotate">Hire Me • Hire Me •</div>
+        <span class="tag-pill tag-1">UI/UX Designer</span>
+        <span class="tag-pill tag-2">Product Designer</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee-track"></div></div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Services</p>
+          <h2><span class="accent">Services</span> I Provide</h2>
+        </div>
+        <a class="btn" href="#contact">View All Services →</a>
+      </div>
+      <div class="cards" id="services-grid"></div>
+      <p class="form-note">To change these services, edit <code>assets/js/config.js</code> — see README.md.</p>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-photo">
+        <img src="assets/images/profile-photo.png" alt="Portrait photo of Muhammad Ashik Madani" width="860" height="1012" loading="lazy">
+      </div>
+      <div>
+        <p class="eyebrow">About Me</p>
+        <h2>Who is <span class="accent" data-site-name>Muhammad Ashik Madani</span>?</h2>
+        <p data-site-bio>I'm an experienced Product Designer, collaborating with various companies and startups.</p>
+        <div class="stats" id="stats"></div>
+        <div class="hero-actions">
+          <a class="btn btn-yellow" href="#contact">Download CV →</a>
+        </div>
+        <h3 style="margin-top:32px">My Favorite Tools</h3>
+        <div class="tools" id="tools"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow">Projects</p>
+      <h2>Selected <span class="accent">Projects</span></h2>
+      <div class="filters" id="project-filters" aria-label="Filter projects"></div>
+      <div class="cards" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <section id="process" style="background:var(--bg-soft)">
+    <div class="wrap">
+      <p class="eyebrow">How I Work</p>
+      <h2>My <span class="accent">Process</span></h2>
+      <div class="process" id="process-grid" style="margin-top:24px"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let's Work <span class="accent">Together</span></h2>
+        <p>Send a message below. This site has no backend, so the form creates a safe email draft — no data is stored on a server. If you add a Formspree ID in <code>config.js</code>, messages will go to Formspree instead (see README.md).</p>
+        <p><strong>Email:</strong> <a data-email-link href="mailto:you@example.com"><span data-site-email>you@example.com</span></a></p>
+        <p><strong>GitHub:</strong> <a data-github-link href="https://github.com/muhammadashikmadani08-tech" target="_blank" rel="noopener">github.com/muhammadashikmadani08-tech</a></p>
+        <p><a data-facebook-link href="#" target="_blank" rel="noopener">Facebook profile</a></p>
+        <p><a href="admin/">Open the local admin panel</a> — edit content in your browser and download an updated <code>config.js</code>. It does not change the live site until you commit that file to GitHub.</p>
+      </div>
+      <form id="contact-form" novalidate>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" required minlength="2" maxlength="80" autocomplete="name" placeholder="Your name">
+        <label for="f-email">Your email</label>
+        <input id="f-email" name="email" type="email" required maxlength="120" autocomplete="email" placeholder="you@example.com">
+        <label for="f-message">Message</label>
+        <textarea id="f-message" name="message" required minlength="10" maxlength="2000" placeholder="Tell me about your project…"></textarea>
+        <p class="form-note">By sending, your email app will open with a pre-filled draft. Nothing is sent automatically from this page.</p>
+        <button class="btn" type="submit">Send Message</button>
+        <div class="form-result" id="form-result" hidden></div>
+        <button class="btn btn-outline" id="copy-message-btn" type="button" hidden style="margin-top:12px">Copy Message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span data-year>2026</span> <span data-site-name>Muhammad Ashik Madani</span>. All rights reserved.</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>

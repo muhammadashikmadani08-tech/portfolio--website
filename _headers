@@ -1,0 +1,7 @@
+# Security headers for Netlify / Cloudflare Pages.
+# GitHub Pages does not read this file — HTTPS is still enforced by GitHub Pages.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
