@@ -51,6 +51,7 @@ const SITE_CONFIG = {
   tools: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "Sketch", "Framer"],
 
   projects: [
+    { title: "কওমি শিক্ষকদের বেতন — মতামত", category: "Poster Design", description: "আওয়ার ইসলামে প্রকাশিত মতামত গ্রাফিক — কওমি শিক্ষকদের বেতন নিয়ে লেখা।", year: "2026", image: "assets/images/projects/ourislam-motamot.jpg" },
     { title: "E-commerce App Design", category: "App Design", description: "A clean shopping app with simple checkout flow.", year: "2025", image: "assets/images/projects/ecommerce-app.jpg" },
     { title: "Business Website", category: "Website Design", description: "A fast, responsive website for a local business.", year: "2025", image: "assets/images/projects/business-website.jpg" },
     { title: "Analytics Dashboard", category: "Dashboard", description: "Charts and reports that are easy to read at a glance.", year: "2024", image: "assets/images/projects/analytics-dashboard.jpg" },
