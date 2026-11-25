@@ -51,10 +51,10 @@ const SITE_CONFIG = {
   tools: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "Sketch", "Framer"],
 
   projects: [
-    { title: "E-commerce App Design", category: "App Design", description: "A clean shopping app with simple checkout flow.", year: "2025" },
-    { title: "Business Website", category: "Website Design", description: "A fast, responsive website for a local business.", year: "2025" },
-    { title: "Analytics Dashboard", category: "Dashboard", description: "Charts and reports that are easy to read at a glance.", year: "2024" },
-    { title: "Travel App Wireframe", category: "Wireframe", description: "Wireframes and user flows for a travel booking app.", year: "2024" },
+    { title: "E-commerce App Design", category: "App Design", description: "A clean shopping app with simple checkout flow.", year: "2025", image: "assets/images/projects/ecommerce-app.jpg" },
+    { title: "Business Website", category: "Website Design", description: "A fast, responsive website for a local business.", year: "2025", image: "assets/images/projects/business-website.jpg" },
+    { title: "Analytics Dashboard", category: "Dashboard", description: "Charts and reports that are easy to read at a glance.", year: "2024", image: "assets/images/projects/analytics-dashboard.jpg" },
+    { title: "Travel App Wireframe", category: "Wireframe", description: "Wireframes and user flows for a travel booking app.", year: "2024", image: "assets/images/projects/travel-app.jpg" },
     { title: "Portfolio Website", category: "Website Design", description: "A personal portfolio with services, projects and contact.", year: "2024" },
     { title: "Food Delivery App", category: "App Design", description: "Ordering flow designed for speed and clarity.", year: "2023" },
   ],
