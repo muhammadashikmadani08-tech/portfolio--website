@@ -84,7 +84,8 @@
     projectsEl.innerHTML = list
       .map(
         (p) =>
-          "<article class='project-card'><div class='project-thumb'>" + escapeHtml(p.title) +
+          "<article class='project-card'><div class='project-thumb" + (p.image ? " has-img" : "") + "'>" +
+          (p.image ? "<img src='" + escapeHtml(p.image) + "' alt='" + escapeHtml(p.title) + "' loading='lazy'>" : escapeHtml(p.title)) +
           "</div><div class='project-body'><small>" + escapeHtml(p.category) + " • " + escapeHtml(p.year || "") +
           "</small><h3>" + escapeHtml(p.title) + "</h3><p>" + escapeHtml(p.description) + "</p></div></article>"
       )
